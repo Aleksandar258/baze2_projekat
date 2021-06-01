@@ -4,27 +4,1015 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ModelFirstDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ModelFirstDbTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="ModelFirstDb.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelFirstDbStoreContainer">
+    <EntitySet Name="IndustrijaObuces" EntityType="ModelFirstDb.Store.IndustrijaObuces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks" EntityType="ModelFirstDb.Store.Radniks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Objekats" EntityType="ModelFirstDb.Store.Objekats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Grads" EntityType="ModelFirstDb.Store.Grads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materijals" EntityType="ModelFirstDb.Store.Materijals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Obucas" EntityType="ModelFirstDb.Store.Obucas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pravis" EntityType="ModelFirstDb.Store.Pravis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipObuces" EntityType="ModelFirstDb.Store.TipObuces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Prodajes" EntityType="ModelFirstDb.Store.Prodajes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nalazis" EntityType="ModelFirstDb.Store.Nalazis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sastojis" EntityType="ModelFirstDb.Store.Sastojis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radis" EntityType="ModelFirstDb.Store.Radis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Obucar" EntityType="ModelFirstDb.Store.Radniks_Obucar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Objekats_MagacinMaterijala" EntityType="ModelFirstDb.Store.Objekats_MagacinMaterijala" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Objekats_Prodavnica" EntityType="ModelFirstDb.Store.Objekats_Prodavnica" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Radniks_Prodavac" EntityType="ModelFirstDb.Store.Radniks_Prodavac" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="IndustrijaObuceRadnik" Association="ModelFirstDb.Store.IndustrijaObuceRadnik">
+      <End Role="IndustrijaObuce" EntitySet="IndustrijaObuces" />
+      <End Role="Radnik" EntitySet="Radniks" />
+    </AssociationSet>
+    <AssociationSet Name="ObjekatGrad" Association="ModelFirstDb.Store.ObjekatGrad">
+      <End Role="Objekat" EntitySet="Objekats" />
+      <End Role="Grad" EntitySet="Grads" />
+    </AssociationSet>
+    <AssociationSet Name="IndustrijaObuceObjekat" Association="ModelFirstDb.Store.IndustrijaObuceObjekat">
+      <End Role="IndustrijaObuce" EntitySet="IndustrijaObuces" />
+      <End Role="Objekat" EntitySet="Objekats" />
+    </AssociationSet>
+    <AssociationSet Name="ObucarPravi" Association="ModelFirstDb.Store.ObucarPravi">
+      <End Role="Obucar" EntitySet="Radniks_Obucar" />
+      <End Role="Pravi" EntitySet="Pravis" />
+    </AssociationSet>
+    <AssociationSet Name="ObucaPravi" Association="ModelFirstDb.Store.ObucaPravi">
+      <End Role="Obuca" EntitySet="Obucas" />
+      <End Role="Pravi" EntitySet="Pravis" />
+    </AssociationSet>
+    <AssociationSet Name="ObucaTipObuce" Association="ModelFirstDb.Store.ObucaTipObuce">
+      <End Role="Obuca" EntitySet="Obucas" />
+      <End Role="TipObuce" EntitySet="TipObuces" />
+    </AssociationSet>
+    <AssociationSet Name="MagacinMaterijalaNalazi" Association="ModelFirstDb.Store.MagacinMaterijalaNalazi">
+      <End Role="MagacinMaterijala" EntitySet="Objekats_MagacinMaterijala" />
+      <End Role="Nalazi" EntitySet="Nalazis" />
+    </AssociationSet>
+    <AssociationSet Name="MaterijalNalazi" Association="ModelFirstDb.Store.MaterijalNalazi">
+      <End Role="Materijal" EntitySet="Materijals" />
+      <End Role="Nalazi" EntitySet="Nalazis" />
+    </AssociationSet>
+    <AssociationSet Name="NalaziSastoji" Association="ModelFirstDb.Store.NalaziSastoji">
+      <End Role="Nalazi" EntitySet="Nalazis" />
+      <End Role="Sastoji" EntitySet="Sastojis" />
+    </AssociationSet>
+    <AssociationSet Name="ObucaSastoji" Association="ModelFirstDb.Store.ObucaSastoji">
+      <End Role="Obuca" EntitySet="Obucas" />
+      <End Role="Sastoji" EntitySet="Sastojis" />
+    </AssociationSet>
+    <AssociationSet Name="ProdavnicaProdaje" Association="ModelFirstDb.Store.ProdavnicaProdaje">
+      <End Role="Prodavnica" EntitySet="Objekats_Prodavnica" />
+      <End Role="Prodaje" EntitySet="Prodajes" />
+    </AssociationSet>
+    <AssociationSet Name="PraviProdaje" Association="ModelFirstDb.Store.PraviProdaje">
+      <End Role="Pravi" EntitySet="Pravis" />
+      <End Role="Prodaje" EntitySet="Prodajes" />
+    </AssociationSet>
+    <AssociationSet Name="ProdavnicaRadi" Association="ModelFirstDb.Store.ProdavnicaRadi">
+      <End Role="Prodavnica" EntitySet="Objekats_Prodavnica" />
+      <End Role="Radi" EntitySet="Radis" />
+    </AssociationSet>
+    <AssociationSet Name="ProdavacRadi" Association="ModelFirstDb.Store.ProdavacRadi">
+      <End Role="Prodavac" EntitySet="Radniks_Prodavac" />
+      <End Role="Radi" EntitySet="Radis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Obucar_inherits_Radnik" Association="ModelFirstDb.Store.FK_Obucar_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Obucar" EntitySet="Radniks_Obucar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MagacinMaterijala_inherits_Objekat" Association="ModelFirstDb.Store.FK_MagacinMaterijala_inherits_Objekat">
+      <End Role="Objekat" EntitySet="Objekats" />
+      <End Role="MagacinMaterijala" EntitySet="Objekats_MagacinMaterijala" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodavnica_inherits_Objekat" Association="ModelFirstDb.Store.FK_Prodavnica_inherits_Objekat">
+      <End Role="Objekat" EntitySet="Objekats" />
+      <End Role="Prodavnica" EntitySet="Objekats_Prodavnica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodavac_inherits_Radnik" Association="ModelFirstDb.Store.FK_Prodavac_inherits_Radnik">
+      <End Role="Radnik" EntitySet="Radniks" />
+      <End Role="Prodavac" EntitySet="Radniks_Prodavac" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="IndustrijaObuces">
+    <Key>
+      <PropertyRef Name="IdIO" />
+    </Key>
+    <Property Name="IdIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazIO" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imeRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrzRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PltRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Objekats">
+    <Key>
+      <PropertyRef Name="IdObj" />
+      <PropertyRef Name="IndustrijaObuceIdIO" />
+    </Key>
+    <Property Name="IdObj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazObj" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdrObj" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GradIdG" Type="int" Nullable="false" />
+    <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grads">
+    <Key>
+      <PropertyRef Name="IdG" />
+    </Key>
+    <Property Name="IdG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazG" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materijals">
+    <Key>
+      <PropertyRef Name="IdMat" />
+    </Key>
+    <Property Name="IdMat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Obucas">
+    <Key>
+      <PropertyRef Name="IdOb" />
+    </Key>
+    <Property Name="IdOb" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazOb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BrOb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CenaOb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TipObuceIdTipOb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pravis">
+    <Key>
+      <PropertyRef Name="ObucarIdRad" />
+      <PropertyRef Name="ObucaIdOb" />
+    </Key>
+    <Property Name="ObucarIdRad" Type="int" Nullable="false" />
+    <Property Name="ObucaIdOb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipObuces">
+    <Key>
+      <PropertyRef Name="IdTipOb" />
+    </Key>
+    <Property Name="IdTipOb" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazTip" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prodajes">
+    <Key>
+      <PropertyRef Name="ProdavnicaIdObj" />
+      <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+      <PropertyRef Name="PraviObucarIdRad" />
+      <PropertyRef Name="PraviObucaIdOb" />
+    </Key>
+    <Property Name="ProdavnicaIdObj" Type="int" Nullable="false" />
+    <Property Name="ProdavnicaIndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="PraviObucarIdRad" Type="int" Nullable="false" />
+    <Property Name="PraviObucaIdOb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nalazis">
+    <Key>
+      <PropertyRef Name="MagacinMaterijalaIdObj" />
+      <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+      <PropertyRef Name="MaterijalIdMat" />
+    </Key>
+    <Property Name="MagacinMaterijalaIdObj" Type="int" Nullable="false" />
+    <Property Name="MagacinMaterijalaIndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="MaterijalIdMat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sastojis">
+    <Key>
+      <PropertyRef Name="NalaziMagacinMaterijalaIdObj" />
+      <PropertyRef Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" />
+      <PropertyRef Name="NalaziMaterijalIdMat" />
+      <PropertyRef Name="ObucaIdOb" />
+    </Key>
+    <Property Name="NalaziMagacinMaterijalaIdObj" Type="int" Nullable="false" />
+    <Property Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="NalaziMaterijalIdMat" Type="int" Nullable="false" />
+    <Property Name="ObucaIdOb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radis">
+    <Key>
+      <PropertyRef Name="ProdavnicaIdObj" />
+      <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+      <PropertyRef Name="ProdavacIdRad" />
+    </Key>
+    <Property Name="ProdavnicaIdObj" Type="int" Nullable="false" />
+    <Property Name="ProdavnicaIndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="ProdavacIdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Obucar">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Objekats_MagacinMaterijala">
+    <Key>
+      <PropertyRef Name="IdObj" />
+      <PropertyRef Name="IndustrijaObuceIdIO" />
+    </Key>
+    <Property Name="IdObj" Type="int" Nullable="false" />
+    <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Objekats_Prodavnica">
+    <Key>
+      <PropertyRef Name="IdObj" />
+      <PropertyRef Name="IndustrijaObuceIdIO" />
+    </Key>
+    <Property Name="IdObj" Type="int" Nullable="false" />
+    <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Radniks_Prodavac">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="IndustrijaObuceRadnik">
+    <End Role="IndustrijaObuce" Type="ModelFirstDb.Store.IndustrijaObuces" Multiplicity="1" />
+    <End Role="Radnik" Type="ModelFirstDb.Store.Radniks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustrijaObuce">
+        <PropertyRef Name="IdIO" />
+      </Principal>
+      <Dependent Role="Radnik">
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObjekatGrad">
+    <End Role="Objekat" Type="ModelFirstDb.Store.Objekats" Multiplicity="*" />
+    <End Role="Grad" Type="ModelFirstDb.Store.Grads" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Grad">
+        <PropertyRef Name="IdG" />
+      </Principal>
+      <Dependent Role="Objekat">
+        <PropertyRef Name="GradIdG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IndustrijaObuceObjekat">
+    <End Role="IndustrijaObuce" Type="ModelFirstDb.Store.IndustrijaObuces" Multiplicity="1" />
+    <End Role="Objekat" Type="ModelFirstDb.Store.Objekats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustrijaObuce">
+        <PropertyRef Name="IdIO" />
+      </Principal>
+      <Dependent Role="Objekat">
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObucarPravi">
+    <End Role="Obucar" Type="ModelFirstDb.Store.Radniks_Obucar" Multiplicity="1" />
+    <End Role="Pravi" Type="ModelFirstDb.Store.Pravis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obucar">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Pravi">
+        <PropertyRef Name="ObucarIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObucaPravi">
+    <End Role="Obuca" Type="ModelFirstDb.Store.Obucas" Multiplicity="1" />
+    <End Role="Pravi" Type="ModelFirstDb.Store.Pravis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obuca">
+        <PropertyRef Name="IdOb" />
+      </Principal>
+      <Dependent Role="Pravi">
+        <PropertyRef Name="ObucaIdOb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObucaTipObuce">
+    <End Role="Obuca" Type="ModelFirstDb.Store.Obucas" Multiplicity="*" />
+    <End Role="TipObuce" Type="ModelFirstDb.Store.TipObuces" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TipObuce">
+        <PropertyRef Name="IdTipOb" />
+      </Principal>
+      <Dependent Role="Obuca">
+        <PropertyRef Name="TipObuceIdTipOb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagacinMaterijalaNalazi">
+    <End Role="MagacinMaterijala" Type="ModelFirstDb.Store.Objekats_MagacinMaterijala" Multiplicity="1" />
+    <End Role="Nalazi" Type="ModelFirstDb.Store.Nalazis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MagacinMaterijala">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Principal>
+      <Dependent Role="Nalazi">
+        <PropertyRef Name="MagacinMaterijalaIdObj" />
+        <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterijalNalazi">
+    <End Role="Materijal" Type="ModelFirstDb.Store.Materijals" Multiplicity="1" />
+    <End Role="Nalazi" Type="ModelFirstDb.Store.Nalazis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materijal">
+        <PropertyRef Name="IdMat" />
+      </Principal>
+      <Dependent Role="Nalazi">
+        <PropertyRef Name="MaterijalIdMat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NalaziSastoji">
+    <End Role="Nalazi" Type="ModelFirstDb.Store.Nalazis" Multiplicity="1" />
+    <End Role="Sastoji" Type="ModelFirstDb.Store.Sastojis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nalazi">
+        <PropertyRef Name="MagacinMaterijalaIdObj" />
+        <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+        <PropertyRef Name="MaterijalIdMat" />
+      </Principal>
+      <Dependent Role="Sastoji">
+        <PropertyRef Name="NalaziMagacinMaterijalaIdObj" />
+        <PropertyRef Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" />
+        <PropertyRef Name="NalaziMaterijalIdMat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObucaSastoji">
+    <End Role="Obuca" Type="ModelFirstDb.Store.Obucas" Multiplicity="1" />
+    <End Role="Sastoji" Type="ModelFirstDb.Store.Sastojis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obuca">
+        <PropertyRef Name="IdOb" />
+      </Principal>
+      <Dependent Role="Sastoji">
+        <PropertyRef Name="ObucaIdOb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdavnicaProdaje">
+    <End Role="Prodavnica" Type="ModelFirstDb.Store.Objekats_Prodavnica" Multiplicity="1" />
+    <End Role="Prodaje" Type="ModelFirstDb.Store.Prodajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prodavnica">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Principal>
+      <Dependent Role="Prodaje">
+        <PropertyRef Name="ProdavnicaIdObj" />
+        <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PraviProdaje">
+    <End Role="Pravi" Type="ModelFirstDb.Store.Pravis" Multiplicity="1" />
+    <End Role="Prodaje" Type="ModelFirstDb.Store.Prodajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pravi">
+        <PropertyRef Name="ObucarIdRad" />
+        <PropertyRef Name="ObucaIdOb" />
+      </Principal>
+      <Dependent Role="Prodaje">
+        <PropertyRef Name="PraviObucarIdRad" />
+        <PropertyRef Name="PraviObucaIdOb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdavnicaRadi">
+    <End Role="Prodavnica" Type="ModelFirstDb.Store.Objekats_Prodavnica" Multiplicity="1" />
+    <End Role="Radi" Type="ModelFirstDb.Store.Radis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prodavnica">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Principal>
+      <Dependent Role="Radi">
+        <PropertyRef Name="ProdavnicaIdObj" />
+        <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdavacRadi">
+    <End Role="Prodavac" Type="ModelFirstDb.Store.Radniks_Prodavac" Multiplicity="1" />
+    <End Role="Radi" Type="ModelFirstDb.Store.Radis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prodavac">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Radi">
+        <PropertyRef Name="ProdavacIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Obucar_inherits_Radnik">
+    <End Role="Radnik" Type="ModelFirstDb.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Obucar" Type="ModelFirstDb.Store.Radniks_Obucar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Obucar">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MagacinMaterijala_inherits_Objekat">
+    <End Role="Objekat" Type="ModelFirstDb.Store.Objekats" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MagacinMaterijala" Type="ModelFirstDb.Store.Objekats_MagacinMaterijala" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Objekat">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Principal>
+      <Dependent Role="MagacinMaterijala">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodavnica_inherits_Objekat">
+    <End Role="Objekat" Type="ModelFirstDb.Store.Objekats" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Prodavnica" Type="ModelFirstDb.Store.Objekats_Prodavnica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Objekat">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Principal>
+      <Dependent Role="Prodavnica">
+        <PropertyRef Name="IdObj" />
+        <PropertyRef Name="IndustrijaObuceIdIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodavac_inherits_Radnik">
+    <End Role="Radnik" Type="ModelFirstDb.Store.Radniks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Prodavac" Type="ModelFirstDb.Store.Radniks_Prodavac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Prodavac">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelFirstDb" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ModelFirstDbContext" annotation:LazyLoadingEnabled="true">
-        </EntityContainer>
+          <EntitySet Name="IndustrijaObuces" EntityType="ModelFirstDb.IndustrijaObuce" />
+          <EntitySet Name="Radniks" EntityType="ModelFirstDb.Radnik" />
+          <AssociationSet Name="IndustrijaObuceRadnik" Association="ModelFirstDb.IndustrijaObuceRadnik">
+            <End Role="IndustrijaObuce" EntitySet="IndustrijaObuces" />
+            <End Role="Radnik" EntitySet="Radniks" />
+          </AssociationSet>
+          <EntitySet Name="Objekats" EntityType="ModelFirstDb.Objekat" />
+          <EntitySet Name="Grads" EntityType="ModelFirstDb.Grad" />
+          <AssociationSet Name="ObjekatGrad" Association="ModelFirstDb.ObjekatGrad">
+            <End Role="Objekat" EntitySet="Objekats" />
+            <End Role="Grad" EntitySet="Grads" />
+          </AssociationSet>
+          <AssociationSet Name="IndustrijaObuceObjekat" Association="ModelFirstDb.IndustrijaObuceObjekat">
+            <End Role="IndustrijaObuce" EntitySet="IndustrijaObuces" />
+            <End Role="Objekat" EntitySet="Objekats" />
+          </AssociationSet>
+          <EntitySet Name="Materijals" EntityType="ModelFirstDb.Materijal" />
+          <EntitySet Name="Obucas" EntityType="ModelFirstDb.Obuca" />
+          <EntitySet Name="Pravis" EntityType="ModelFirstDb.Pravi" />
+          <AssociationSet Name="ObucarPravi" Association="ModelFirstDb.ObucarPravi">
+            <End Role="Obucar" EntitySet="Radniks" />
+            <End Role="Pravi" EntitySet="Pravis" />
+          </AssociationSet>
+          <AssociationSet Name="ObucaPravi" Association="ModelFirstDb.ObucaPravi">
+            <End Role="Obuca" EntitySet="Obucas" />
+            <End Role="Pravi" EntitySet="Pravis" />
+          </AssociationSet>
+          <EntitySet Name="TipObuces" EntityType="ModelFirstDb.TipObuce" />
+          <AssociationSet Name="ObucaTipObuce" Association="ModelFirstDb.ObucaTipObuce">
+            <End Role="Obuca" EntitySet="Obucas" />
+            <End Role="TipObuce" EntitySet="TipObuces" />
+          </AssociationSet>
+          <EntitySet Name="Prodajes" EntityType="ModelFirstDb.Prodaje" />
+          <EntitySet Name="Nalazis" EntityType="ModelFirstDb.Nalazi" />
+          <AssociationSet Name="MagacinMaterijalaNalazi" Association="ModelFirstDb.MagacinMaterijalaNalazi">
+            <End Role="MagacinMaterijala" EntitySet="Objekats" />
+            <End Role="Nalazi" EntitySet="Nalazis" />
+          </AssociationSet>
+          <AssociationSet Name="MaterijalNalazi" Association="ModelFirstDb.MaterijalNalazi">
+            <End Role="Materijal" EntitySet="Materijals" />
+            <End Role="Nalazi" EntitySet="Nalazis" />
+          </AssociationSet>
+          <EntitySet Name="Sastojis" EntityType="ModelFirstDb.Sastoji" />
+          <AssociationSet Name="NalaziSastoji" Association="ModelFirstDb.NalaziSastoji">
+            <End Role="Nalazi" EntitySet="Nalazis" />
+            <End Role="Sastoji" EntitySet="Sastojis" />
+          </AssociationSet>
+          <AssociationSet Name="ObucaSastoji" Association="ModelFirstDb.ObucaSastoji">
+            <End Role="Obuca" EntitySet="Obucas" />
+            <End Role="Sastoji" EntitySet="Sastojis" />
+          </AssociationSet>
+          <AssociationSet Name="ProdavnicaProdaje" Association="ModelFirstDb.ProdavnicaProdaje">
+            <End Role="Prodavnica" EntitySet="Objekats" />
+            <End Role="Prodaje" EntitySet="Prodajes" />
+          </AssociationSet>
+          <AssociationSet Name="PraviProdaje" Association="ModelFirstDb.PraviProdaje">
+            <End Role="Pravi" EntitySet="Pravis" />
+            <End Role="Prodaje" EntitySet="Prodajes" />
+          </AssociationSet>
+          <EntitySet Name="Radis" EntityType="ModelFirstDb.Radi" />
+          <AssociationSet Name="ProdavnicaRadi" Association="ModelFirstDb.ProdavnicaRadi">
+            <End Role="Prodavnica" EntitySet="Objekats" />
+            <End Role="Radi" EntitySet="Radis" />
+          </AssociationSet>
+          <AssociationSet Name="ProdavacRadi" Association="ModelFirstDb.ProdavacRadi">
+            <End Role="Prodavac" EntitySet="Radniks" />
+            <End Role="Radi" EntitySet="Radis" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="IndustrijaObuce">
+          <Key>
+            <PropertyRef Name="IdIO" />
+          </Key>
+          <Property Name="IdIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazIO" Type="String" Nullable="false" />
+          <NavigationProperty Name="Radniks" Relationship="ModelFirstDb.IndustrijaObuceRadnik" FromRole="IndustrijaObuce" ToRole="Radnik" />
+          <NavigationProperty Name="Objekats" Relationship="ModelFirstDb.IndustrijaObuceObjekat" FromRole="IndustrijaObuce" ToRole="Objekat" />
+        </EntityType>
+        <EntityType Name="Radnik">
+          <Key>
+            <PropertyRef Name="IdRad" />
+          </Key>
+          <Property Name="IdRad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imeRad" Type="String" Nullable="false" />
+          <Property Name="PrzRad" Type="String" Nullable="false" />
+          <Property Name="PltRad" Type="String" Nullable="false" />
+          <NavigationProperty Name="IndustrijaObuce" Relationship="ModelFirstDb.IndustrijaObuceRadnik" FromRole="Radnik" ToRole="IndustrijaObuce" />
+          <Property Name="IndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="IndustrijaObuceRadnik">
+          <End Type="ModelFirstDb.IndustrijaObuce" Role="IndustrijaObuce" Multiplicity="1" />
+          <End Type="ModelFirstDb.Radnik" Role="Radnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IndustrijaObuce">
+              <PropertyRef Name="IdIO" />
+            </Principal>
+            <Dependent Role="Radnik">
+              <PropertyRef Name="IndustrijaObuceIdIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Objekat">
+          <Key>
+            <PropertyRef Name="IdObj" />
+            <PropertyRef Name="IndustrijaObuceIdIO" />
+          </Key>
+          <Property Name="IdObj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazObj" Type="String" Nullable="false" />
+          <Property Name="AdrObj" Type="String" Nullable="false" />
+          <NavigationProperty Name="Grad" Relationship="ModelFirstDb.ObjekatGrad" FromRole="Objekat" ToRole="Grad" />
+          <Property Name="GradIdG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IndustrijaObuce" Relationship="ModelFirstDb.IndustrijaObuceObjekat" FromRole="Objekat" ToRole="IndustrijaObuce" />
+          <Property Name="IndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grad">
+          <Key>
+            <PropertyRef Name="IdG" />
+          </Key>
+          <Property Name="IdG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Objekats" Relationship="ModelFirstDb.ObjekatGrad" FromRole="Grad" ToRole="Objekat" />
+          <Property Name="NazG" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="ObjekatGrad">
+          <End Type="ModelFirstDb.Objekat" Role="Objekat" Multiplicity="*" />
+          <End Type="ModelFirstDb.Grad" Role="Grad" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Grad">
+              <PropertyRef Name="IdG" />
+            </Principal>
+            <Dependent Role="Objekat">
+              <PropertyRef Name="GradIdG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Prodavac" BaseType="ModelFirstDb.Radnik" >
+          <NavigationProperty Name="Radis" Relationship="ModelFirstDb.ProdavacRadi" FromRole="Prodavac" ToRole="Radi" />
+        </EntityType>
+        <EntityType Name="Obucar" BaseType="ModelFirstDb.Radnik" >
+          <NavigationProperty Name="Pravis" Relationship="ModelFirstDb.ObucarPravi" FromRole="Obucar" ToRole="Pravi" />
+        </EntityType>
+        <Association Name="IndustrijaObuceObjekat">
+          <End Type="ModelFirstDb.IndustrijaObuce" Role="IndustrijaObuce" Multiplicity="1" />
+          <End Type="ModelFirstDb.Objekat" Role="Objekat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IndustrijaObuce">
+              <PropertyRef Name="IdIO" />
+            </Principal>
+            <Dependent Role="Objekat">
+              <PropertyRef Name="IndustrijaObuceIdIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Materijal">
+          <Key>
+            <PropertyRef Name="IdMat" />
+          </Key>
+          <Property Name="IdMat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Nalazis" Relationship="ModelFirstDb.MaterijalNalazi" FromRole="Materijal" ToRole="Nalazi" />
+        </EntityType>
+        <EntityType Name="Obuca">
+          <Key>
+            <PropertyRef Name="IdOb" />
+          </Key>
+          <Property Name="IdOb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazOb" Type="String" Nullable="false" />
+          <Property Name="BrOb" Type="String" Nullable="false" />
+          <Property Name="CenaOb" Type="String" Nullable="false" />
+          <NavigationProperty Name="Pravis" Relationship="ModelFirstDb.ObucaPravi" FromRole="Obuca" ToRole="Pravi" />
+          <NavigationProperty Name="TipObuce" Relationship="ModelFirstDb.ObucaTipObuce" FromRole="Obuca" ToRole="TipObuce" />
+          <Property Name="TipObuceIdTipOb" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sastojis" Relationship="ModelFirstDb.ObucaSastoji" FromRole="Obuca" ToRole="Sastoji" />
+        </EntityType>
+        <EntityType Name="Pravi" >
+          <Key>
+            <PropertyRef Name="ObucarIdRad" />
+            <PropertyRef Name="ObucaIdOb" />
+          </Key>
+          <NavigationProperty Name="Obucar" Relationship="ModelFirstDb.ObucarPravi" FromRole="Pravi" ToRole="Obucar" />
+          <Property Name="ObucarIdRad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Obuca" Relationship="ModelFirstDb.ObucaPravi" FromRole="Pravi" ToRole="Obuca" />
+          <Property Name="ObucaIdOb" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prodajes" Relationship="ModelFirstDb.PraviProdaje" FromRole="Pravi" ToRole="Prodaje" />
+        </EntityType>
+        <Association Name="ObucarPravi">
+          <End Type="ModelFirstDb.Obucar" Role="Obucar" Multiplicity="1" />
+          <End Type="ModelFirstDb.Pravi" Role="Pravi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obucar">
+              <PropertyRef Name="IdRad" />
+            </Principal>
+            <Dependent Role="Pravi">
+              <PropertyRef Name="ObucarIdRad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ObucaPravi">
+          <End Type="ModelFirstDb.Obuca" Role="Obuca" Multiplicity="1" />
+          <End Type="ModelFirstDb.Pravi" Role="Pravi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obuca">
+              <PropertyRef Name="IdOb" />
+            </Principal>
+            <Dependent Role="Pravi">
+              <PropertyRef Name="ObucaIdOb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TipObuce">
+          <Key>
+            <PropertyRef Name="IdTipOb" />
+          </Key>
+          <Property Name="IdTipOb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazTip" Type="String" Nullable="false" />
+          <NavigationProperty Name="Obucas" Relationship="ModelFirstDb.ObucaTipObuce" FromRole="TipObuce" ToRole="Obuca" />
+        </EntityType>
+        <Association Name="ObucaTipObuce">
+          <End Type="ModelFirstDb.Obuca" Role="Obuca" Multiplicity="*" />
+          <End Type="ModelFirstDb.TipObuce" Role="TipObuce" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TipObuce">
+              <PropertyRef Name="IdTipOb" />
+            </Principal>
+            <Dependent Role="Obuca">
+              <PropertyRef Name="TipObuceIdTipOb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Prodaje" >
+          <Key>
+            <PropertyRef Name="ProdavnicaIdObj" />
+            <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+            <PropertyRef Name="PraviObucarIdRad" />
+            <PropertyRef Name="PraviObucaIdOb" />
+          </Key>
+          <NavigationProperty Name="Prodavnica" Relationship="ModelFirstDb.ProdavnicaProdaje" FromRole="Prodaje" ToRole="Prodavnica" />
+          <Property Name="ProdavnicaIdObj" Type="Int32" Nullable="false" />
+          <Property Name="ProdavnicaIndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pravi" Relationship="ModelFirstDb.PraviProdaje" FromRole="Prodaje" ToRole="Pravi" />
+          <Property Name="PraviObucarIdRad" Type="Int32" Nullable="false" />
+          <Property Name="PraviObucaIdOb" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MagacinMaterijala" BaseType="ModelFirstDb.Objekat" >
+          <NavigationProperty Name="Nalazis" Relationship="ModelFirstDb.MagacinMaterijalaNalazi" FromRole="MagacinMaterijala" ToRole="Nalazi" />
+        </EntityType>
+        <EntityType Name="Nalazi" >
+          <Key>
+            <PropertyRef Name="MagacinMaterijalaIdObj" />
+            <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+            <PropertyRef Name="MaterijalIdMat" />
+          </Key>
+          <NavigationProperty Name="MagacinMaterijala" Relationship="ModelFirstDb.MagacinMaterijalaNalazi" FromRole="Nalazi" ToRole="MagacinMaterijala" />
+          <Property Name="MagacinMaterijalaIdObj" Type="Int32" Nullable="false" />
+          <Property Name="MagacinMaterijalaIndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Materijal" Relationship="ModelFirstDb.MaterijalNalazi" FromRole="Nalazi" ToRole="Materijal" />
+          <Property Name="MaterijalIdMat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sastojis" Relationship="ModelFirstDb.NalaziSastoji" FromRole="Nalazi" ToRole="Sastoji" />
+        </EntityType>
+        <Association Name="MagacinMaterijalaNalazi">
+          <End Type="ModelFirstDb.MagacinMaterijala" Role="MagacinMaterijala" Multiplicity="1" />
+          <End Type="ModelFirstDb.Nalazi" Role="Nalazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MagacinMaterijala">
+              <PropertyRef Name="IdObj" />
+              <PropertyRef Name="IndustrijaObuceIdIO" />
+            </Principal>
+            <Dependent Role="Nalazi">
+              <PropertyRef Name="MagacinMaterijalaIdObj" />
+              <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterijalNalazi">
+          <End Type="ModelFirstDb.Materijal" Role="Materijal" Multiplicity="1" />
+          <End Type="ModelFirstDb.Nalazi" Role="Nalazi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materijal">
+              <PropertyRef Name="IdMat" />
+            </Principal>
+            <Dependent Role="Nalazi">
+              <PropertyRef Name="MaterijalIdMat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sastoji" >
+          <Key>
+            <PropertyRef Name="NalaziMagacinMaterijalaIdObj" />
+            <PropertyRef Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" />
+            <PropertyRef Name="NalaziMaterijalIdMat" />
+            <PropertyRef Name="ObucaIdOb" />
+          </Key>
+          <NavigationProperty Name="Nalazi" Relationship="ModelFirstDb.NalaziSastoji" FromRole="Sastoji" ToRole="Nalazi" />
+          <Property Name="NalaziMagacinMaterijalaIdObj" Type="Int32" Nullable="false" />
+          <Property Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <Property Name="NalaziMaterijalIdMat" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Obuca" Relationship="ModelFirstDb.ObucaSastoji" FromRole="Sastoji" ToRole="Obuca" />
+          <Property Name="ObucaIdOb" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="NalaziSastoji">
+          <End Type="ModelFirstDb.Nalazi" Role="Nalazi" Multiplicity="1" />
+          <End Type="ModelFirstDb.Sastoji" Role="Sastoji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nalazi">
+              <PropertyRef Name="MagacinMaterijalaIdObj" />
+              <PropertyRef Name="MagacinMaterijalaIndustrijaObuceIdIO" />
+              <PropertyRef Name="MaterijalIdMat" />
+            </Principal>
+            <Dependent Role="Sastoji">
+              <PropertyRef Name="NalaziMagacinMaterijalaIdObj" />
+              <PropertyRef Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" />
+              <PropertyRef Name="NalaziMaterijalIdMat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ObucaSastoji">
+          <End Type="ModelFirstDb.Obuca" Role="Obuca" Multiplicity="1" />
+          <End Type="ModelFirstDb.Sastoji" Role="Sastoji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obuca">
+              <PropertyRef Name="IdOb" />
+            </Principal>
+            <Dependent Role="Sastoji">
+              <PropertyRef Name="ObucaIdOb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Prodavnica" BaseType="ModelFirstDb.Objekat" >
+          <NavigationProperty Name="Prodajes" Relationship="ModelFirstDb.ProdavnicaProdaje" FromRole="Prodavnica" ToRole="Prodaje" />
+          <NavigationProperty Name="Radis" Relationship="ModelFirstDb.ProdavnicaRadi" FromRole="Prodavnica" ToRole="Radi" />
+        </EntityType>
+        <Association Name="ProdavnicaProdaje">
+          <End Type="ModelFirstDb.Prodavnica" Role="Prodavnica" Multiplicity="1" />
+          <End Type="ModelFirstDb.Prodaje" Role="Prodaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodavnica">
+              <PropertyRef Name="IdObj" />
+              <PropertyRef Name="IndustrijaObuceIdIO" />
+            </Principal>
+            <Dependent Role="Prodaje">
+              <PropertyRef Name="ProdavnicaIdObj" />
+              <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PraviProdaje">
+          <End Type="ModelFirstDb.Pravi" Role="Pravi" Multiplicity="1" />
+          <End Type="ModelFirstDb.Prodaje" Role="Prodaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pravi">
+              <PropertyRef Name="ObucarIdRad" />
+              <PropertyRef Name="ObucaIdOb" />
+            </Principal>
+            <Dependent Role="Prodaje">
+              <PropertyRef Name="PraviObucarIdRad" />
+              <PropertyRef Name="PraviObucaIdOb" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Radi" >
+          <Key>
+            <PropertyRef Name="ProdavnicaIdObj" />
+            <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+            <PropertyRef Name="ProdavacIdRad" />
+          </Key>
+          <NavigationProperty Name="Prodavnica" Relationship="ModelFirstDb.ProdavnicaRadi" FromRole="Radi" ToRole="Prodavnica" />
+          <Property Name="ProdavnicaIdObj" Type="Int32" Nullable="false" />
+          <Property Name="ProdavnicaIndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prodavac" Relationship="ModelFirstDb.ProdavacRadi" FromRole="Radi" ToRole="Prodavac" />
+          <Property Name="ProdavacIdRad" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ProdavnicaRadi">
+          <End Type="ModelFirstDb.Prodavnica" Role="Prodavnica" Multiplicity="1" />
+          <End Type="ModelFirstDb.Radi" Role="Radi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodavnica">
+              <PropertyRef Name="IdObj" />
+              <PropertyRef Name="IndustrijaObuceIdIO" />
+            </Principal>
+            <Dependent Role="Radi">
+              <PropertyRef Name="ProdavnicaIdObj" />
+              <PropertyRef Name="ProdavnicaIndustrijaObuceIdIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProdavacRadi">
+          <End Type="ModelFirstDb.Prodavac" Role="Prodavac" Multiplicity="1" />
+          <End Type="ModelFirstDb.Radi" Role="Radi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prodavac">
+              <PropertyRef Name="IdRad" />
+            </Principal>
+            <Dependent Role="Radi">
+              <PropertyRef Name="ProdavacIdRad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="ModelFirstDb" />
-        <Alias Key="Target" Value="ModelFirstDb.Store" />
-        <EntityContainerMapping CdmEntityContainer="ModelFirstDbContext" StorageEntityContainer="ModelFirstDbTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirstDbStoreContainer" CdmEntityContainer="ModelFirstDbContext">
+    <EntitySetMapping Name="IndustrijaObuces">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.IndustrijaObuce)">
+        <MappingFragment StoreEntitySet="IndustrijaObuces">
+          <ScalarProperty Name="IdIO" ColumnName="IdIO" />
+          <ScalarProperty Name="nazIO" ColumnName="nazIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radniks">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Radnik)">
+        <MappingFragment StoreEntitySet="Radniks">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="imeRad" ColumnName="imeRad" />
+          <ScalarProperty Name="PrzRad" ColumnName="PrzRad" />
+          <ScalarProperty Name="PltRad" ColumnName="PltRad" />
+          <ScalarProperty Name="IndustrijaObuceIdIO" ColumnName="IndustrijaObuceIdIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Obucar)">
+        <MappingFragment StoreEntitySet="Radniks_Obucar">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Prodavac)">
+        <MappingFragment StoreEntitySet="Radniks_Prodavac">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Objekats">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Objekat)">
+        <MappingFragment StoreEntitySet="Objekats">
+          <ScalarProperty Name="IdObj" ColumnName="IdObj" />
+          <ScalarProperty Name="IndustrijaObuceIdIO" ColumnName="IndustrijaObuceIdIO" />
+          <ScalarProperty Name="NazObj" ColumnName="NazObj" />
+          <ScalarProperty Name="AdrObj" ColumnName="AdrObj" />
+          <ScalarProperty Name="GradIdG" ColumnName="GradIdG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.MagacinMaterijala)">
+        <MappingFragment StoreEntitySet="Objekats_MagacinMaterijala">
+          <ScalarProperty Name="IdObj" ColumnName="IdObj" />
+          <ScalarProperty Name="IndustrijaObuceIdIO" ColumnName="IndustrijaObuceIdIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Prodavnica)">
+        <MappingFragment StoreEntitySet="Objekats_Prodavnica">
+          <ScalarProperty Name="IdObj" ColumnName="IdObj" />
+          <ScalarProperty Name="IndustrijaObuceIdIO" ColumnName="IndustrijaObuceIdIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grads">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Grad)">
+        <MappingFragment StoreEntitySet="Grads">
+          <ScalarProperty Name="IdG" ColumnName="IdG" />
+          <ScalarProperty Name="NazG" ColumnName="NazG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materijals">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Materijal)">
+        <MappingFragment StoreEntitySet="Materijals">
+          <ScalarProperty Name="IdMat" ColumnName="IdMat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Obucas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Obuca)">
+        <MappingFragment StoreEntitySet="Obucas">
+          <ScalarProperty Name="IdOb" ColumnName="IdOb" />
+          <ScalarProperty Name="NazOb" ColumnName="NazOb" />
+          <ScalarProperty Name="BrOb" ColumnName="BrOb" />
+          <ScalarProperty Name="CenaOb" ColumnName="CenaOb" />
+          <ScalarProperty Name="TipObuceIdTipOb" ColumnName="TipObuceIdTipOb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pravis">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Pravi)">
+        <MappingFragment StoreEntitySet="Pravis">
+          <ScalarProperty Name="ObucarIdRad" ColumnName="ObucarIdRad" />
+          <ScalarProperty Name="ObucaIdOb" ColumnName="ObucaIdOb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipObuces">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.TipObuce)">
+        <MappingFragment StoreEntitySet="TipObuces">
+          <ScalarProperty Name="IdTipOb" ColumnName="IdTipOb" />
+          <ScalarProperty Name="NazTip" ColumnName="NazTip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prodajes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Prodaje)">
+        <MappingFragment StoreEntitySet="Prodajes">
+          <ScalarProperty Name="ProdavnicaIdObj" ColumnName="ProdavnicaIdObj" />
+          <ScalarProperty Name="ProdavnicaIndustrijaObuceIdIO" ColumnName="ProdavnicaIndustrijaObuceIdIO" />
+          <ScalarProperty Name="PraviObucarIdRad" ColumnName="PraviObucarIdRad" />
+          <ScalarProperty Name="PraviObucaIdOb" ColumnName="PraviObucaIdOb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nalazis">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Nalazi)">
+        <MappingFragment StoreEntitySet="Nalazis">
+          <ScalarProperty Name="MagacinMaterijalaIdObj" ColumnName="MagacinMaterijalaIdObj" />
+          <ScalarProperty Name="MagacinMaterijalaIndustrijaObuceIdIO" ColumnName="MagacinMaterijalaIndustrijaObuceIdIO" />
+          <ScalarProperty Name="MaterijalIdMat" ColumnName="MaterijalIdMat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sastojis">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Sastoji)">
+        <MappingFragment StoreEntitySet="Sastojis">
+          <ScalarProperty Name="NalaziMagacinMaterijalaIdObj" ColumnName="NalaziMagacinMaterijalaIdObj" />
+          <ScalarProperty Name="NalaziMagacinMaterijalaIndustrijaObuceIdIO" ColumnName="NalaziMagacinMaterijalaIndustrijaObuceIdIO" />
+          <ScalarProperty Name="NalaziMaterijalIdMat" ColumnName="NalaziMaterijalIdMat" />
+          <ScalarProperty Name="ObucaIdOb" ColumnName="ObucaIdOb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radis">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Radi)">
+        <MappingFragment StoreEntitySet="Radis">
+          <ScalarProperty Name="ProdavnicaIdObj" ColumnName="ProdavnicaIdObj" />
+          <ScalarProperty Name="ProdavnicaIndustrijaObuceIdIO" ColumnName="ProdavnicaIndustrijaObuceIdIO" />
+          <ScalarProperty Name="ProdavacIdRad" ColumnName="ProdavacIdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -38,6 +1026,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -45,13 +52,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Grad.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IndustrijaObuce.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MagacinMaterijala.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Materijal.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelFirstDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFirstDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelFirstDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelFirstDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelFirstDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Nalazi.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objekat.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Obuca.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Obucar.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pravi.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prodaje.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prodavac.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Prodavnica.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Radi.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Radnik.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\GradRepository.cs" />
+    <Compile Include="Repository\IndustrijaObuceRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\MagacinMaterijalaRepository.cs" />
+    <Compile Include="Repository\MaterijalRepository.cs" />
+    <Compile Include="Repository\NalaziRepository.cs" />
+    <Compile Include="Repository\ObjekatRepository.cs" />
+    <Compile Include="Repository\ObucaRepository.cs" />
+    <Compile Include="Repository\ObucarRepository.cs" />
+    <Compile Include="Repository\PraviRepository.cs" />
+    <Compile Include="Repository\ProdajeReposirory.cs" />
+    <Compile Include="Repository\ProdavacRepository.cs" />
+    <Compile Include="Repository\ProdavnicaRepository.cs" />
+    <Compile Include="Repository\RadiRepository.cs" />
+    <Compile Include="Repository\RadnikRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\SastojiRepository.cs" />
+    <Compile Include="Repository\TipObuceRepository.cs" />
+    <Compile Include="Sastoji.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipObuce.cs">
+      <DependentUpon>ModelFirstDb.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -62,6 +145,23 @@
     <None Include="ModelFirstDb.edmx.diagram">
       <DependentUpon>ModelFirstDb.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelFirstDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelFirstDb.Context.cs</LastGenOutput>
+      <DependentUpon>ModelFirstDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelFirstDb.edmx.sql" />
+    <Content Include="ModelFirstDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelFirstDb.cs</LastGenOutput>
+      <DependentUpon>ModelFirstDb.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
