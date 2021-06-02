@@ -11,7 +11,7 @@ namespace Baza.Repository
         List<TModel> GetAll();
         TModel FindByID(int id);
         bool Insert(TModel model);
-        bool Delete(int id);
+        bool Delete(int id, int id2 = 0);
         bool Update(TModel model);
     }
 }

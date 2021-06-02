@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="ModelFirstDb.IndustrijaObuce" Width="1.5" PointX="1.875" PointY="0.75" />
         <EntityTypeShape EntityType="ModelFirstDb.Radnik" Width="1.5" PointX="1.5" PointY="5.625" />
         <AssociationConnector Association="ModelFirstDb.IndustrijaObuceRadnik" />
-        <EntityTypeShape EntityType="ModelFirstDb.Objekat" Width="1.5" PointX="7.25" PointY="0.625" />
+        <EntityTypeShape EntityType="ModelFirstDb.Objekat" Width="1.5" PointX="7.25" PointY="0.5" />
         <EntityTypeShape EntityType="ModelFirstDb.Grad" Width="1.5" PointX="10.375" PointY="0.75" />
         <AssociationConnector Association="ModelFirstDb.ObjekatGrad" />
         <EntityTypeShape EntityType="ModelFirstDb.Prodavac" Width="1.5" PointX="0.5" PointY="11.125" />
@@ -37,23 +37,23 @@
         <InheritanceConnector EntityType="ModelFirstDb.Prodavnica" />
         <AssociationConnector Association="ModelFirstDb.ProdavnicaProdaje" />
         <AssociationConnector Association="ModelFirstDb.PraviProdaje" ManuallyRouted="true" >
-          <ConnectorPoint PointX="5.7232819842570439" PointY="13.105286458333334" />
-          <ConnectorPoint PointX="5.7232819842570439" PointY="16.34543019043171" />
-          <ConnectorPoint PointX="11.49282016424368" PointY="16.34543019043171" />
-          <ConnectorPoint PointX="11.49282016424368" PointY="10.672587890625" />
+          <ConnectorPoint PointX="5.6085448105622007" PointY="13.105286458333334" />
+          <ConnectorPoint PointX="5.6085448105622007" PointY="16.551411373085273" />
+          <ConnectorPoint PointX="11.505209662042695" PointY="16.551411373085273" />
+          <ConnectorPoint PointX="11.505209662042695" PointY="10.672587890625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ModelFirstDb.Radi" Width="1.5" PointX="13.75" PointY="11.875" />
         <AssociationConnector Association="ModelFirstDb.ProdavnicaRadi" ManuallyRouted="true" >
-          <ConnectorPoint PointX="10" PointY="4.3266910807291659" />
-          <ConnectorPoint PointX="14.59008972157244" PointY="4.3266910807291659" />
-          <ConnectorPoint PointX="14.59008972157244" PointY="11.875" />
+          <ConnectorPoint PointX="10" PointY="4.3654977035368159" />
+          <ConnectorPoint PointX="14.5" PointY="4.3654977035368159" />
+          <ConnectorPoint PointX="14.5" PointY="11.875" />
         </AssociationConnector>
         <AssociationConnector Association="ModelFirstDb.ProdavacRadi" ManuallyRouted="true" >
           <ConnectorPoint PointX="2" PointY="11.730540364583334" />
           <ConnectorPoint PointX="2.25" PointY="11.730540364583334" />
-          <ConnectorPoint PointX="2.25" PointY="17.019513475411859" />
-          <ConnectorPoint PointX="14.581416506566322" PointY="17.019513475411859" />
-          <ConnectorPoint PointX="14.581416506566322" PointY="13.855286458333334" />
+          <ConnectorPoint PointX="2.25" PointY="17.5021279641684" />
+          <ConnectorPoint PointX="14.385579441027794" PointY="17.5021279641684" />
+          <ConnectorPoint PointX="14.385579441027794" PointY="13.855286458333334" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

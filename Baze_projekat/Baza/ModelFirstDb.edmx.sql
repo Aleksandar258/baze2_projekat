@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/01/2021 14:39:05
+-- Date Created: 06/01/2021 17:48:24
 -- Generated from EDMX file: E:\milijevic\Desktop\Baze2_projekat\baze2_projekat\Baze_projekat\Baza\ModelFirstDb.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,113 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_IndustrijaObuceRadnik]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Radniks] DROP CONSTRAINT [FK_IndustrijaObuceRadnik];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ObjekatGrad]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Objekats] DROP CONSTRAINT [FK_ObjekatGrad];
+GO
+IF OBJECT_ID(N'[dbo].[FK_IndustrijaObuceObjekat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Objekats] DROP CONSTRAINT [FK_IndustrijaObuceObjekat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ObucarPravi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pravis] DROP CONSTRAINT [FK_ObucarPravi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ObucaPravi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pravis] DROP CONSTRAINT [FK_ObucaPravi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ObucaTipObuce]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Obucas] DROP CONSTRAINT [FK_ObucaTipObuce];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MagacinMaterijalaNalazi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Nalazis] DROP CONSTRAINT [FK_MagacinMaterijalaNalazi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MaterijalNalazi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Nalazis] DROP CONSTRAINT [FK_MaterijalNalazi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_NalaziSastoji]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Sastojis] DROP CONSTRAINT [FK_NalaziSastoji];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ObucaSastoji]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Sastojis] DROP CONSTRAINT [FK_ObucaSastoji];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdavnicaProdaje]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Prodajes] DROP CONSTRAINT [FK_ProdavnicaProdaje];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PraviProdaje]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Prodajes] DROP CONSTRAINT [FK_PraviProdaje];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdavnicaRadi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Radis] DROP CONSTRAINT [FK_ProdavnicaRadi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdavacRadi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Radis] DROP CONSTRAINT [FK_ProdavacRadi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Obucar_inherits_Radnik]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Radniks_Obucar] DROP CONSTRAINT [FK_Obucar_inherits_Radnik];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MagacinMaterijala_inherits_Objekat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Objekats_MagacinMaterijala] DROP CONSTRAINT [FK_MagacinMaterijala_inherits_Objekat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Prodavnica_inherits_Objekat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Objekats_Prodavnica] DROP CONSTRAINT [FK_Prodavnica_inherits_Objekat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Prodavac_inherits_Radnik]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Radniks_Prodavac] DROP CONSTRAINT [FK_Prodavac_inherits_Radnik];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[IndustrijaObuces]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IndustrijaObuces];
+GO
+IF OBJECT_ID(N'[dbo].[Radniks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Radniks];
+GO
+IF OBJECT_ID(N'[dbo].[Objekats]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Objekats];
+GO
+IF OBJECT_ID(N'[dbo].[Grads]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Grads];
+GO
+IF OBJECT_ID(N'[dbo].[Materijals]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Materijals];
+GO
+IF OBJECT_ID(N'[dbo].[Obucas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Obucas];
+GO
+IF OBJECT_ID(N'[dbo].[Pravis]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pravis];
+GO
+IF OBJECT_ID(N'[dbo].[TipObuces]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TipObuces];
+GO
+IF OBJECT_ID(N'[dbo].[Prodajes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Prodajes];
+GO
+IF OBJECT_ID(N'[dbo].[Nalazis]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Nalazis];
+GO
+IF OBJECT_ID(N'[dbo].[Sastojis]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Sastojis];
+GO
+IF OBJECT_ID(N'[dbo].[Radis]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Radis];
+GO
+IF OBJECT_ID(N'[dbo].[Radniks_Obucar]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Radniks_Obucar];
+GO
+IF OBJECT_ID(N'[dbo].[Objekats_MagacinMaterijala]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Objekats_MagacinMaterijala];
+GO
+IF OBJECT_ID(N'[dbo].[Objekats_Prodavnica]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Objekats_Prodavnica];
+GO
+IF OBJECT_ID(N'[dbo].[Radniks_Prodavac]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Radniks_Prodavac];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -30,7 +132,7 @@ GO
 -- Creating table 'IndustrijaObuces'
 CREATE TABLE [dbo].[IndustrijaObuces] (
     [IdIO] int IDENTITY(1,1) NOT NULL,
-    [nazIO] nvarchar(max)  NOT NULL
+    [NazIO] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -39,8 +141,9 @@ CREATE TABLE [dbo].[Radniks] (
     [IdRad] int IDENTITY(1,1) NOT NULL,
     [imeRad] nvarchar(max)  NOT NULL,
     [PrzRad] nvarchar(max)  NOT NULL,
-    [PltRad] nvarchar(max)  NOT NULL,
-    [IndustrijaObuceIdIO] int  NOT NULL
+    [PltRad] int  NOT NULL,
+    [IndustrijaObuceIdIO] int  NOT NULL,
+    [TipRad] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -50,7 +153,8 @@ CREATE TABLE [dbo].[Objekats] (
     [NazObj] nvarchar(max)  NOT NULL,
     [AdrObj] nvarchar(max)  NOT NULL,
     [GradIdG] int  NOT NULL,
-    [IndustrijaObuceIdIO] int  NOT NULL
+    [IndustrijaObuceIdIO] int  NOT NULL,
+    [TipObj] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -63,7 +167,8 @@ GO
 
 -- Creating table 'Materijals'
 CREATE TABLE [dbo].[Materijals] (
-    [IdMat] int IDENTITY(1,1) NOT NULL
+    [IdMat] int IDENTITY(1,1) NOT NULL,
+    [NazMat] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -71,8 +176,8 @@ GO
 CREATE TABLE [dbo].[Obucas] (
     [IdOb] int IDENTITY(1,1) NOT NULL,
     [NazOb] nvarchar(max)  NOT NULL,
-    [BrOb] nvarchar(max)  NOT NULL,
-    [CenaOb] nvarchar(max)  NOT NULL,
+    [BrOb] int  NOT NULL,
+    [CenaOb] int  NOT NULL,
     [TipObuceIdTipOb] int  NOT NULL
 );
 GO

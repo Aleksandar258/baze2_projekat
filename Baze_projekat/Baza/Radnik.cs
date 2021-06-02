@@ -17,8 +17,9 @@ namespace Baza
         public int IdRad { get; set; }
         public string imeRad { get; set; }
         public string PrzRad { get; set; }
-        public string PltRad { get; set; }
+        public int PltRad { get; set; }
         public int IndustrijaObuceIdIO { get; set; }
+        public string TipRad { get; set; }
     
         public virtual IndustrijaObuce IndustrijaObuce { get; set; }
     }

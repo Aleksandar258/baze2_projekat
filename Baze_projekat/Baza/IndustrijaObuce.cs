@@ -22,7 +22,7 @@ namespace Baza
         }
     
         public int IdIO { get; set; }
-        public string nazIO { get; set; }
+        public string NazIO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Radnik> Radniks { get; set; }

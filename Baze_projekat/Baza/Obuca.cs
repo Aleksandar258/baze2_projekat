@@ -23,8 +23,8 @@ namespace Baza
     
         public int IdOb { get; set; }
         public string NazOb { get; set; }
-        public string BrOb { get; set; }
-        public string CenaOb { get; set; }
+        public int BrOb { get; set; }
+        public int CenaOb { get; set; }
         public int TipObuceIdTipOb { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

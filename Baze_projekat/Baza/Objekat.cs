@@ -19,6 +19,7 @@ namespace Baza
         public string AdrObj { get; set; }
         public int GradIdG { get; set; }
         public int IndustrijaObuceIdIO { get; set; }
+        public string TipObj { get; set; }
     
         public virtual Grad Grad { get; set; }
         public virtual IndustrijaObuce IndustrijaObuce { get; set; }

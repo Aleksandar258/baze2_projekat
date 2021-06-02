@@ -21,6 +21,7 @@ namespace Baza
         }
     
         public int IdMat { get; set; }
+        public string NazMat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nalazi> Nalazis { get; set; }

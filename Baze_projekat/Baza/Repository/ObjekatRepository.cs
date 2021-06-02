@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Baza.Repository
 {
-    class ObjekatRepository : Repository<Objekat>
+    public class ObjekatRepository : Repository<Objekat>
     {
     }
 }

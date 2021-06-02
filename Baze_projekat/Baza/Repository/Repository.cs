@@ -15,14 +15,22 @@ namespace Baza.Repository
 
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id, int id2 = 0)
         {
             using(var db = new ModelFirstDbContext())
             {
                 try
                 {
                     DbSet<TModel> dbSet = db.Set<TModel>();
-                    TModel entityToDelete = db.Set<TModel>().Find(id);
+                    TModel entityToDelete;
+                    if (id2 != 0)
+                    {
+                        entityToDelete = db.Set<TModel>().Find(id, id2);
+                    } 
+                    else
+                    {
+                        entityToDelete = db.Set<TModel>().Find(id);
+                    }
                     db.Entry(entityToDelete).State = EntityState.Deleted;
                     db.SaveChanges();
                     return true;

@@ -100,7 +100,7 @@
       <PropertyRef Name="IdIO" />
     </Key>
     <Property Name="IdIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nazIO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NazIO" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Radniks">
     <Key>
@@ -109,8 +109,9 @@
     <Property Name="IdRad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="imeRad" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PrzRad" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PltRad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PltRad" Type="int" Nullable="false" />
     <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="TipRad" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Objekats">
     <Key>
@@ -122,6 +123,7 @@
     <Property Name="AdrObj" Type="nvarchar(max)" Nullable="false" />
     <Property Name="GradIdG" Type="int" Nullable="false" />
     <Property Name="IndustrijaObuceIdIO" Type="int" Nullable="false" />
+    <Property Name="TipObj" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Grads">
     <Key>
@@ -135,6 +137,7 @@
       <PropertyRef Name="IdMat" />
     </Key>
     <Property Name="IdMat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazMat" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Obucas">
     <Key>
@@ -142,8 +145,8 @@
     </Key>
     <Property Name="IdOb" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NazOb" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="BrOb" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CenaOb" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BrOb" Type="int" Nullable="false" />
+    <Property Name="CenaOb" Type="int" Nullable="false" />
     <Property Name="TipObuceIdTipOb" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pravis">
@@ -552,7 +555,7 @@
             <PropertyRef Name="IdIO" />
           </Key>
           <Property Name="IdIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nazIO" Type="String" Nullable="false" />
+          <Property Name="NazIO" Type="String" Nullable="false" />
           <NavigationProperty Name="Radniks" Relationship="ModelFirstDb.IndustrijaObuceRadnik" FromRole="IndustrijaObuce" ToRole="Radnik" />
           <NavigationProperty Name="Objekats" Relationship="ModelFirstDb.IndustrijaObuceObjekat" FromRole="IndustrijaObuce" ToRole="Objekat" />
         </EntityType>
@@ -563,9 +566,10 @@
           <Property Name="IdRad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="imeRad" Type="String" Nullable="false" />
           <Property Name="PrzRad" Type="String" Nullable="false" />
-          <Property Name="PltRad" Type="String" Nullable="false" />
+          <Property Name="PltRad" Type="Int32" Nullable="false" />
           <NavigationProperty Name="IndustrijaObuce" Relationship="ModelFirstDb.IndustrijaObuceRadnik" FromRole="Radnik" ToRole="IndustrijaObuce" />
           <Property Name="IndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <Property Name="TipRad" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="IndustrijaObuceRadnik">
           <End Type="ModelFirstDb.IndustrijaObuce" Role="IndustrijaObuce" Multiplicity="1" />
@@ -591,6 +595,7 @@
           <Property Name="GradIdG" Type="Int32" Nullable="false" />
           <NavigationProperty Name="IndustrijaObuce" Relationship="ModelFirstDb.IndustrijaObuceObjekat" FromRole="Objekat" ToRole="IndustrijaObuce" />
           <Property Name="IndustrijaObuceIdIO" Type="Int32" Nullable="false" />
+          <Property Name="TipObj" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Grad">
           <Key>
@@ -636,6 +641,7 @@
           </Key>
           <Property Name="IdMat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Nalazis" Relationship="ModelFirstDb.MaterijalNalazi" FromRole="Materijal" ToRole="Nalazi" />
+          <Property Name="NazMat" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Obuca">
           <Key>
@@ -643,8 +649,8 @@
           </Key>
           <Property Name="IdOb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NazOb" Type="String" Nullable="false" />
-          <Property Name="BrOb" Type="String" Nullable="false" />
-          <Property Name="CenaOb" Type="String" Nullable="false" />
+          <Property Name="BrOb" Type="Int32" Nullable="false" />
+          <Property Name="CenaOb" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Pravis" Relationship="ModelFirstDb.ObucaPravi" FromRole="Obuca" ToRole="Pravi" />
           <NavigationProperty Name="TipObuce" Relationship="ModelFirstDb.ObucaTipObuce" FromRole="Obuca" ToRole="TipObuce" />
           <Property Name="TipObuceIdTipOb" Type="Int32" Nullable="false" />
@@ -883,7 +889,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.IndustrijaObuce)">
         <MappingFragment StoreEntitySet="IndustrijaObuces">
           <ScalarProperty Name="IdIO" ColumnName="IdIO" />
-          <ScalarProperty Name="nazIO" ColumnName="nazIO" />
+          <ScalarProperty Name="NazIO" ColumnName="NazIO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -895,6 +901,7 @@
           <ScalarProperty Name="PrzRad" ColumnName="PrzRad" />
           <ScalarProperty Name="PltRad" ColumnName="PltRad" />
           <ScalarProperty Name="IndustrijaObuceIdIO" ColumnName="IndustrijaObuceIdIO" />
+          <ScalarProperty Name="TipRad" ColumnName="TipRad" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Obucar)">
@@ -916,6 +923,7 @@
           <ScalarProperty Name="NazObj" ColumnName="NazObj" />
           <ScalarProperty Name="AdrObj" ColumnName="AdrObj" />
           <ScalarProperty Name="GradIdG" ColumnName="GradIdG" />
+          <ScalarProperty Name="TipObj" ColumnName="TipObj" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.MagacinMaterijala)">
@@ -943,6 +951,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelFirstDb.Materijal)">
         <MappingFragment StoreEntitySet="Materijals">
           <ScalarProperty Name="IdMat" ColumnName="IdMat" />
+          <ScalarProperty Name="NazMat" ColumnName="NazMat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
