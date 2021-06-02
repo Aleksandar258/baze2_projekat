@@ -69,7 +69,9 @@
     <Compile Include="ViewModel\NalaziViewModel.cs" />
     <Compile Include="ViewModel\ObjekatViewModel.cs" />
     <Compile Include="ViewModel\ObucaViewModel.cs" />
+    <Compile Include="ViewModel\PocetniProzorViewModel.cs" />
     <Compile Include="ViewModel\RadnikViewModel.cs" />
+    <Compile Include="ViewModel\SastojiViewModel.cs" />
     <Compile Include="ViewModel\TipObuceViewModel.cs" />
     <Compile Include="Views\GradView.xaml.cs">
       <DependentUpon>GradView.xaml</DependentUpon>
@@ -89,8 +91,14 @@
     <Compile Include="Views\ObucaView.xaml.cs">
       <DependentUpon>ObucaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PocetniProzor.xaml.cs">
+      <DependentUpon>PocetniProzor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RadnikView.xaml.cs">
       <DependentUpon>RadnikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SastojiView.xaml.cs">
+      <DependentUpon>SastojiView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TipObuceView.xaml.cs">
       <DependentUpon>TipObuceView.xaml</DependentUpon>
@@ -131,7 +139,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PocetniProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RadnikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SastojiView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

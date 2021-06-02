@@ -61,6 +61,17 @@
                 <views:ObucaView/>
             </UserControl>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:SastojiViewModel}">
+            <UserControl>
+                <views:SastojiView/>
+            </UserControl>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:PocetniProzorViewModel}">
+            <UserControl>
+                <views:PocetniProzor/>
+            </UserControl>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -75,6 +86,8 @@
                     <MenuItem Header="Objekat" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="objekat"></MenuItem>
                     <MenuItem Header="Nalazi" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="nalazi"></MenuItem>
                     <MenuItem Header="Obuca" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="obuca"></MenuItem>
+                    <MenuItem Header="Sastoji" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="sastoji"></MenuItem>
+                    <MenuItem Header="Pocetni prozor" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="pocetni"></MenuItem>
                 </MenuItem>
             </Menu>
             <ContentControl Content="{Binding CurrentView}"/>

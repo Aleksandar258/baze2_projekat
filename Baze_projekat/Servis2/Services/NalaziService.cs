@@ -15,6 +15,7 @@ namespace Servis2.Services
         public NalaziRepository repository = new NalaziRepository();
         //public ObjekatService objekatService = new ObjekatService();
         //public MaterijalService materijalService = new MaterijalService();
+        public SastojiService sastojiService = new SastojiService();
         public bool AddNalazi(DTONalazi nalazi)
         {
             Nalazi io = new Nalazi()
@@ -31,6 +32,14 @@ namespace Servis2.Services
 
         public bool DeleteNalazi(int idObj, int idIO, int idMat)
         {
+            List<DTOSastoji> nalazis = sastojiService.GetAllSastoji();
+            foreach (DTOSastoji r in nalazis)
+            {
+                if (r.IdObj == idObj && r.IdIO == idIO && r.IdMat == idMat)
+                {
+                    sastojiService.DeleteSastoji(r.IdObj, r.IdIO, r.IdMat, r.IdOb);
+                }
+            }
             return repository.Delete(idObj, idIO, idMat);
         }
 

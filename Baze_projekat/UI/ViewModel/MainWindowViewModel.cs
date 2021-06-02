@@ -21,6 +21,9 @@ namespace UI.ViewModel
         private ObjekatViewModel objekatView = new ObjekatViewModel();
         private NalaziViewModel nalaziView = new NalaziViewModel();
         private ObucaViewModel obucaView = new ObucaViewModel();
+        private SastojiViewModel sastojiView = new SastojiViewModel();
+        private PocetniProzorViewModel pocetniView = new PocetniProzorViewModel();
+
 
         public MainWindowViewModel()
         {
@@ -77,6 +80,12 @@ namespace UI.ViewModel
                     break;
                 case "obuca":
                     CurrentView = obucaView;
+                    break;
+                case "sastoji":
+                    CurrentView = sastojiView;
+                    break;
+                case "pocetni":
+                    CurrentView = pocetniView;
                     break;
             }
         }

@@ -13,6 +13,7 @@ namespace Servis2.Services
     public class ObucaService : IObucaService
     {
         public ObucaRepository repository = new ObucaRepository();
+        public SastojiService sastojiService = new SastojiService();
         public bool AddObuca(DTOObuca obuca)
         {
             Obuca io = new Obuca()
@@ -31,6 +32,14 @@ namespace Servis2.Services
 
         public bool DeleteObuca(int id)
         {
+            List<DTOSastoji> nalazis = sastojiService.GetAllSastoji();
+            foreach (DTOSastoji r in nalazis)
+            {
+                if (r.IdOb == id)
+                {
+                    sastojiService.DeleteSastoji(r.IdObj, r.IdIO, r.IdMat, r.IdOb);
+                }
+            }
             return repository.Delete(id);
         }
 

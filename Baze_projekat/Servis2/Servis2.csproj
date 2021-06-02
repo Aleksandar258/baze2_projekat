@@ -54,6 +54,7 @@
     <Compile Include="Model\DTOObjekat.cs" />
     <Compile Include="Model\DTOObuca.cs" />
     <Compile Include="Model\DTORadnik.cs" />
+    <Compile Include="Model\DTOSastoji.cs" />
     <Compile Include="Model\DTOTipObuce.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,12 +67,14 @@
     <Compile Include="Services\Interface\IObjekatService.cs" />
     <Compile Include="Services\Interface\IObucaService.cs" />
     <Compile Include="Services\Interface\IRadnikService.cs" />
+    <Compile Include="Services\Interface\ISastojiService.cs" />
     <Compile Include="Services\Interface\ITipObuceService.cs" />
     <Compile Include="Services\MaterijalService.cs" />
     <Compile Include="Services\NalaziService.cs" />
     <Compile Include="Services\ObjekatService.cs" />
     <Compile Include="Services\ObucaService.cs" />
     <Compile Include="Services\RadnikService.cs" />
+    <Compile Include="Services\SastojiService.cs" />
     <Compile Include="Services\TipObuceService.cs" />
   </ItemGroup>
   <ItemGroup>
