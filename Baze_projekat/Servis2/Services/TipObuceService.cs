@@ -13,6 +13,7 @@ namespace Servis2.Services
     public class TipObuceService : ITipObuceService
     {
         public TipObuceRepository repository = new TipObuceRepository();
+        public ObucaService obucaService = new ObucaService();
         public bool AddTipObuce(DTOTipObuce tipObuce)
         {
             TipObuce io = new TipObuce()
@@ -28,6 +29,14 @@ namespace Servis2.Services
 
         public bool DeleteTipObuce(int id)
         {
+            List<DTOObuca> nalazis = obucaService.GetAllObuca();
+            foreach (DTOObuca r in nalazis)
+            {
+                if (r.IdTip == id)
+                {
+                    obucaService.DeleteObuca(r.IdOb);
+                }
+            }
             return repository.Delete(id);
         }
 

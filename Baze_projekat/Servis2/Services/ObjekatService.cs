@@ -15,6 +15,7 @@ namespace Servis2.Services
         public ObjekatRepository repository = new ObjekatRepository();
         public MagacinMaterijalaRepository repositoryM = new MagacinMaterijalaRepository();
         public ProdavnicaRepository repositoryP = new ProdavnicaRepository();
+        public NalaziService nalaziService = new NalaziService();
         public bool AddObjekat(DTOObjekat objekat)
         {
             if (objekat.TipObj == "MagacinMaterijala")
@@ -53,6 +54,14 @@ namespace Servis2.Services
         {
             if (tip == "MagacinMaterijala")
             {
+                List<DTONalazi> nalazis = nalaziService.GetAllNalazi();
+                foreach (DTONalazi r in nalazis)
+                {
+                    if (r.IdObj == id && r.IdIO == id2)
+                    {
+                        nalaziService.DeleteNalazi(r.IdObj, r.IdIO, r.IdMat);
+                    }
+                }
                 return repositoryM.Delete(id, id2);
             }
             else if (tip == "Prodavnica")

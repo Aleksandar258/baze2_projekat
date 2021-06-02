@@ -19,6 +19,8 @@ namespace UI.ViewModel
         private MaterijalViewModel materijalView = new MaterijalViewModel();
         private TipObuceViewModel tipObuceView = new TipObuceViewModel();
         private ObjekatViewModel objekatView = new ObjekatViewModel();
+        private NalaziViewModel nalaziView = new NalaziViewModel();
+        private ObucaViewModel obucaView = new ObucaViewModel();
 
         public MainWindowViewModel()
         {
@@ -69,6 +71,12 @@ namespace UI.ViewModel
                     break;
                 case "objekat":
                     CurrentView = objekatView;
+                    break;
+                case "nalazi":
+                    CurrentView = nalaziView;
+                    break;
+                case "obuca":
+                    CurrentView = obucaView;
                     break;
             }
         }

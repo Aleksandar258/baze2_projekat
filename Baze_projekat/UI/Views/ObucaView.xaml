@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="UI.Views.ObucaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="Blue">
+    <UserControl.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <DataGrid Height="200" ItemsSource="{Binding Obucas, Mode=TwoWay}" SelectedIndex="{Binding SelectedIndex}" AutoGenerateColumns="False"  IsReadOnly="True" Margin="0,10,0,239.6">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding IdOb}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"/>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding NazOb}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" />
+                <DataGridTextColumn Header="Broj" Width="*" Binding="{Binding BrOb}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" />
+                <DataGridTextColumn Header="Cena" Width="*" Binding="{Binding CenaOb}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" />
+                <DataGridTextColumn Header="IdTip" Width="*" Binding="{Binding IdTip}" HeaderStyle="{StaticResource CenterGridHeaderStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Id:" FontSize="16" HorizontalAlignment="Left" Margin="28,156,0,0" VerticalAlignment="Top" Width="71" Height="27" RenderTransformOrigin="0.565,-0.05"/>
+        <TextBox Text="{Binding Current.IdOb}" HorizontalAlignment="Left" FontSize="16" Height="27" Margin="122,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Naziv" FontSize="16" HorizontalAlignment="Left" Margin="28,203,0,0" VerticalAlignment="Top" Width="71" Height="28"/>
+        <TextBox Text="{Binding Current.NazOb}" HorizontalAlignment="Left" FontSize="16" Height="28" Margin="122,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding AddCommand}" Content="Add" HorizontalAlignment="Left" Margin="639,230,0,0" VerticalAlignment="Top" Width="101" Height="27"/>
+        <Button Command="{Binding DeleteCommand}" Content="Delete" HorizontalAlignment="Left" Margin="639,262,0,0" VerticalAlignment="Top" Width="101" Height="27"/>
+        <Button Command="{Binding EditCommand}" Content="Edit" HorizontalAlignment="Left" Margin="639,294,0,0" VerticalAlignment="Top" Width="101" Height="27"/>
+        <Button Command="{Binding ShowCommand}" Content="Show" HorizontalAlignment="Left" Margin="639,326,0,0" VerticalAlignment="Top" Width="101" Height="27"/>
+        <Label  Content="{Binding ErrorButton}" HorizontalAlignment="Left" Margin="301,173,0,0" VerticalAlignment="Top" Width="316"/>
+        <Label Content="{Binding Current.ValidationErrors[Id]}" FontSize="8" HorizontalAlignment="Left" Margin="80,183,0,0" VerticalAlignment="Top" Height="20" Width="199"/>
+        <Label Content="{Binding Current.ValidationErrors[naz]}" FontSize="8" HorizontalAlignment="Left" Margin="80,230,0,0" VerticalAlignment="Top" Height="20" Width="199"/>
+        <Label Content="Broj:" FontSize="16" HorizontalAlignment="Left" Margin="28,250,0,0" VerticalAlignment="Top" Width="89" Height="27"/>
+        <TextBox Text="{Binding Current.BrOb}" HorizontalAlignment="Left" FontSize="16" Height="27" Margin="122,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Current.ValidationErrors[br]}" FontSize="8" HorizontalAlignment="Left" Margin="80,277,0,0" VerticalAlignment="Top" Height="20" Width="199"/>
+        <Label Content="Cena" FontSize="16" HorizontalAlignment="Left" Margin="28,297,0,0" VerticalAlignment="Top" Width="71" Height="29"/>
+        <TextBox  Text="{Binding Current.CenaOb}" HorizontalAlignment="Left" FontSize="16" Height="27" Margin="122,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Current.ValidationErrors[cena]}" FontSize="8" HorizontalAlignment="Left" Margin="80,331,0,0" VerticalAlignment="Top" Width="199" Height="22"/>
+        <Label Content="IdTip" HorizontalAlignment="Left" FontSize="15" Margin="279,250,0,0" VerticalAlignment="Top" Height="27" Width="79"/>
+        <TextBox Text="{Binding Current.IdTip}" HorizontalAlignment="Left" Height="27" Margin="363,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{Binding Current.ValidationErrors[IdTip]}" FontSize="8" HorizontalAlignment="Left" Margin="338,279,0,0" VerticalAlignment="Top" Height="22" Width="180"/>
+    </Grid>
+</UserControl>

@@ -9,9 +9,9 @@ namespace Baza.Repository
     public interface IRepository<TModel> where TModel : class
     {
         List<TModel> GetAll();
-        TModel FindByID(int id);
+        TModel FindByID(int id, int id2 = 0, int id3 = 0, int id4 = 0);
         bool Insert(TModel model);
-        bool Delete(int id, int id2 = 0);
+        bool Delete(int id, int id2 = 0, int id3 = 0, int id4 = 0);
         bool Update(TModel model);
     }
 }

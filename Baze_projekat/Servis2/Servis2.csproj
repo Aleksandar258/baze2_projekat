@@ -50,7 +50,9 @@
     <Compile Include="Model\DTOGrad.cs" />
     <Compile Include="Model\DTOIndustrijaObuce.cs" />
     <Compile Include="Model\DTOMaterijal.cs" />
+    <Compile Include="Model\DTONalazi.cs" />
     <Compile Include="Model\DTOObjekat.cs" />
+    <Compile Include="Model\DTOObuca.cs" />
     <Compile Include="Model\DTORadnik.cs" />
     <Compile Include="Model\DTOTipObuce.cs" />
     <Compile Include="Program.cs" />
@@ -60,11 +62,15 @@
     <Compile Include="Services\Interface\IGradService.cs" />
     <Compile Include="Services\Interface\IIndustrijaObuceService.cs" />
     <Compile Include="Services\Interface\IMaterijalService.cs" />
+    <Compile Include="Services\Interface\INalzaiService.cs" />
     <Compile Include="Services\Interface\IObjekatService.cs" />
+    <Compile Include="Services\Interface\IObucaService.cs" />
     <Compile Include="Services\Interface\IRadnikService.cs" />
     <Compile Include="Services\Interface\ITipObuceService.cs" />
     <Compile Include="Services\MaterijalService.cs" />
+    <Compile Include="Services\NalaziService.cs" />
     <Compile Include="Services\ObjekatService.cs" />
+    <Compile Include="Services\ObucaService.cs" />
     <Compile Include="Services\RadnikService.cs" />
     <Compile Include="Services\TipObuceService.cs" />
   </ItemGroup>

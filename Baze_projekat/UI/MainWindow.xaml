@@ -49,6 +49,18 @@
                 <views:ObjekatView/>
             </UserControl>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:NalaziViewModel}">
+            <UserControl>
+                <views:NalaziView/>
+            </UserControl>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodel:ObucaViewModel}">
+            <UserControl>
+                <views:ObucaView/>
+            </UserControl>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -61,6 +73,8 @@
                     <MenuItem Header="Materijal" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="materijal"></MenuItem>
                     <MenuItem Header="Tip obuce" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="tipObuce"></MenuItem>
                     <MenuItem Header="Objekat" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="objekat"></MenuItem>
+                    <MenuItem Header="Nalazi" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="nalazi"></MenuItem>
+                    <MenuItem Header="Obuca" Width="300" Foreground="Black" Command="{Binding MenuCommand}" CommandParameter="obuca"></MenuItem>
                 </MenuItem>
             </Menu>
             <ContentControl Content="{Binding CurrentView}"/>

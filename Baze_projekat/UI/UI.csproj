@@ -66,7 +66,9 @@
     <Compile Include="ViewModel\IndustrijaObuceViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MaterijalViewModel.cs" />
+    <Compile Include="ViewModel\NalaziViewModel.cs" />
     <Compile Include="ViewModel\ObjekatViewModel.cs" />
+    <Compile Include="ViewModel\ObucaViewModel.cs" />
     <Compile Include="ViewModel\RadnikViewModel.cs" />
     <Compile Include="ViewModel\TipObuceViewModel.cs" />
     <Compile Include="Views\GradView.xaml.cs">
@@ -78,8 +80,14 @@
     <Compile Include="Views\MaterijalView.xaml.cs">
       <DependentUpon>MaterijalView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NalaziView.xaml.cs">
+      <DependentUpon>NalaziView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ObjekatView.xaml.cs">
       <DependentUpon>ObjekatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ObucaView.xaml.cs">
+      <DependentUpon>ObucaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RadnikView.xaml.cs">
       <DependentUpon>RadnikView.xaml</DependentUpon>
@@ -111,7 +119,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NalaziView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ObjekatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ObucaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

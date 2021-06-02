@@ -15,7 +15,7 @@ namespace Baza.Repository
 
         }
 
-        public bool Delete(int id, int id2 = 0)
+        public virtual bool Delete(int id, int id2 = 0, int id3 = 0, int id4 = 0)
         {
             using(var db = new ModelFirstDbContext())
             {
@@ -43,7 +43,7 @@ namespace Baza.Repository
             }
         }
 
-        public TModel FindByID(int id)
+        public virtual TModel FindByID(int id, int id2 = 0, int id3 = 0, int id4 = 0)
         {
             using(var db = new ModelFirstDbContext())
             {
@@ -51,7 +51,7 @@ namespace Baza.Repository
             }
         }
 
-        public List<TModel> GetAll()
+        public virtual List<TModel> GetAll()
         {
             using (var db = new ModelFirstDbContext())
             {
@@ -59,7 +59,7 @@ namespace Baza.Repository
             }
         }
 
-        public bool Insert(TModel model)
+        public virtual bool Insert(TModel model)
         {
             using (var db = new ModelFirstDbContext())
             {
@@ -77,7 +77,7 @@ namespace Baza.Repository
             }
         }
 
-        public bool Update(TModel model)
+        public virtual bool Update(TModel model)
         {
             using (var db = new ModelFirstDbContext())
             {
