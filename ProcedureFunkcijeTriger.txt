@@ -1,0 +1,69 @@
+--Funkcija
+
+Alter Function BrojObuceMaterijala
+(@Mat varchar(20)
+) RETURNS INT
+As
+Begin
+Declare @Br as int
+Select @Br = count(o.IdOb) from Materijals m, Nalazis n, Sastojis s, Obucas o where m.IdMat=n.MaterijalIdMat and o.IdOb = s.ObucaIdOb and n.MaterijalIdMat=s.NalaziMaterijalIdMat and n.MagacinMaterijalaIdObj = s.NalaziMagacinMaterijalaIdObj and n.MagacinMaterijalaIndustrijaObuceIdIO = s.NalaziMagacinMaterijalaIndustrijaObuceIdIO and m.NazMat = @Mat group by m.NazMat
+Return @Br;
+End
+
+
+
+---Procedura
+
+USE [ModelFirstDb]
+GO
+/****** Object:  StoredProcedure [dbo].[TrazenjeRadnika]    Script Date: 6/2/2021 8:53:07 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--Select r.IdRad,r.imeRad,r.PrzRad,r.TipRad,i.NazIO,o.NazObj,o.TipObj,g.NazG from Radniks r, IndustrijaObuces i, Objekats o, Grads g where r.IndustrijaObuceIdIO = i.IdIO and i.IdIO = o.IndustrijaObuceIdIO and o.GradIdG = g.IdG and g.NazG=@Mesto
+ALTER Procedure [dbo].[TrazenjeRadnika](@Mesto varchar(20), @Ime varchar(20), @Plt int out)
+as
+
+begin
+declare kursor cursor
+	for select r.PltRad
+	from Radniks r, IndustrijaObuces i, Objekats o, Grads g 
+	where r.IndustrijaObuceIdIO = i.IdIO and i.IdIO = o.IndustrijaObuceIdIO and o.GradIdG = g.IdG and g.NazG=@Mesto and r.imeRad = @Ime
+declare @p int;
+begin
+	open kursor;
+	fetch next from kursor
+	into @p 
+	while @@FETCH_STATUS =0
+	begin
+		fetch next from kursor
+		into @p 	
+		print @p
+	end
+	if(@p is null)
+		set @Plt = 0
+	else
+		set @Plt = @p
+	close kursor;
+	deallocate kursor;
+end
+end
+
+
+
+
+---triger
+
+ON [dbo].[IndustrijaObuces]
+for insert
+AS
+BEGIN
+declare @ioid int;
+declare @ioname varchar(100);
+select @ioid=i.IdIO from inserted i;
+select @ioname=i.NazIO from inserted i;
+
+print 'Id: ' + cast(@ioid as varchar) + ' Name: ' + @ioname
+
+END
